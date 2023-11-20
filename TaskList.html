@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task List</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div>
+        <h1>Task List</h1>
+        <div class="task-input">
+            <input type="text" id="new-task" placeholder="Add a new task">
+            <button id="add-task">Add Task</button>
+        </div>
+        <ul id="task-list">
+            <!--Task items will be added here dynamically-->
+        </ul>
+        <h2>Completed Tasks</h2>
+        <table id="completed-tasks">
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--Completed task items will be added here dynamically-->
+            </tbody>
+        </table>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Circle Calculator</title>
+
+</head>
+
+<body>
+
+    <h1>Circle Calculator</h1>
+
+    <form id="circleForm">
+
+        <label for="radius">Enter the radius:</label>
+
+        <input type="number" id="radius" name="radius" required>
+
+       
+
+        <label for="calculation">Choose Calculation:</label>
+
+        <select id="calculation" name="calculation">
+
+            <option value="area">Area</option>
+
+            <option value="circumference">Circumference</option>
+
+        </select>
+
+       
+
+        <button type="submit">Calculate</button>
+
+    </form>
+
+    <p id="result"></p>
+
+ 
+
+    <script>
+
+        //Function to calculate the area of a circle
+
+        function calculateArea(radius) {
+
+            return Math.PI * Math.pow(radius, 2);
+
+        }
+
+ 
+
+        //Function to calculate the circumference of a circle
+
+        function calculateCircumference(radius) {
+
+            return 2 * Math.PI * radius;
+
+        }
+
+ 
+
+        //Handle form submission
+
+        document.getElementById("circleForm").addEventListener("submit", function (e) {
+
+            e.preventDefault();
+
+            const radius = parseFloat(document.getElementById("radius").value);
+
+            const calculationType = document.getElementById("calculation").value;
+
+ 
+
+            if (isNaN(radius)) {
+
+                document.getElementById("result").textContent = "Please enter a valid number for the radius.";
+
+            } else {
+
+                let result;
+
+                if (calculationType === "area") {
+
+                    result = calculateArea(radius);
+
+                    document.getElementById("result").textContent = `The area of the circle is ${result.toFixed(2)}`;
+
+                } else if (calculationType === "circumference") {
+
+                    result = calculateCircumference(radius);
+
+                    document.getElementById("result").textContent = `The circumference of the circle is ${result.toFixed(2)}`;
+
+                }
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>

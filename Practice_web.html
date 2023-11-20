@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JavaScript International Exam Practice</title>
+
+</head>
+
+<body>
+
+    <h1>JavaScript International Exam Practice</h1>
+
+ 
+
+    <form id="myForm">
+
+        <label for="name"> Name:</label>
+
+        <input type="text" id="name" required><br><br>
+
+ 
+
+        <label for="age"> Age:</label>
+
+        <input type="number" id="age" required><br><br>
+
+ 
+
+        <button type="submit">Submit</button>
+
+ 
+
+    </form>
+
+    <p id="message"></p>
+
+    <p id="messageTwo"></p>
+
+    <button type="button" id ="clickMe">Click Me</button>
+
+ 
+
+    <script>
+
+ 
+
+        //4. Document Object Model (DOM)
+
+ 
+
+        //4.1 identify and construct the Document Object Model (DOM) tree
+
+        const bodyElement = document.body;
+
+ 
+
+        //4.2 Identify and handle document, form, keyboard, and mouse events
+
+ 
+
+        const form = document.getElementById("myForm");
+
+        form.addEventListener("submit", function (event){
+
+            event.preventDefault(); //Prevent form submission
+
+ 
+
+            const nameInput = document.getElementById("name");
+
+            const ageInput = document.getElementById("age");
+
+ 
+
+            const name = nameInput.value;
+
+            const age = parseInt(ageInput.value);
+
+ 
+
+            if (age >= 18) {
+
+                document.getElementById("message").textContent = "Welcome, " + name + "!";
+
+            } else {
+
+                document.getElementById("message").textContent = "You are too young, " + name + ".";
+
+            }
+
+ 
+
+        });
+
+ 
+
+        //4.3 Complete and debug code that outputs to an HTML document
+
+        document.getElementById("messageTwo").textContent = "I am here.";
+
+ 
+
+        //4.4 Complete and debug code that locates, modifies, and adds HTML elements and attributes to documents
+
+        const newElement = document.createElement("p");
+
+        newElement.textContent = "I am here 2.0";
+
+        document.body.appendChild(newElement);
+
+ 
+
+        //4.5 Create events using event handlers and listeners
+
+        const clickMeButton = document.getElementById("clickMe");
+
+        clickMeButton.addEventListener("click", function (){
+
+            alert("Button clicked!");
+
+        });
+
+ 
+
+ 
+
+    </script>
+
+</body>
+
+</html>

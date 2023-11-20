@@ -1,37 +1,45 @@
-//Add DOMcontentloaded function
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded",function(){
+//dictionary list for colour inputs
+const colormap = {"red":"#FF0000","blue":"#5733FF","yellow":"#FFFF33","orange":"#FFA500","black":"#000000","green":"#008000"};
+//variables tied to form and input objects
+const colorForm = document.getElementById('colorForm');
+const favoriteColorInput = document.getElementById('favoriteColor');
 
-// const header = document.querySelector('header');
-// header.addEventListener('click', function() {
-//   header.style.backgroundColor = 'red';
+colorForm.addEventListener("submit",function(e){
+    //prevent form from submitting normally.
+    e.preventDefault();
 
-// });
+//storing user input
+const userColor = favoriteColorInput.value.toLowerCase();
 
-  
+//
+if (colormap.hasOwnProperty(userColor)) 
+{
+const selectedColour = colormap[userColor];
 
-    const imageContainers = document.querySelectorAll('.image-container');
+document.body.style.background = selectedColour;
 
-    imageContainers.forEach(container => {
-      container.addEventListener('mousemove', e => {
-        const text = container.querySelector('.image-text');
-        const rect = container.getBoundingClientRect();
-    
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-    
-        text.style.left = `${x}px`;
-        text.style.top = `${y}px`;
-      });
-    });
+} else{
+    alert("Invalid colour input.");
+}
 
-
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navMenu = document.getElementById('nav-menu');
-    
-    mobileMenu.addEventListener('click', function() {
-    navMenu.classList.toggle('active');
-    });
-
- 
+favoriteColorInput.value = "";
+});
 });
 
+////FOR RAND COLOR GENERATOR
+
+// //event listner for loading the js before the css stylesheet function
+// document.addEventListener("DOMContentLoaded",function(){
+// const colorbtn = document.getElementById('colorbtn');
+// const color =['#194D33','#7568C8','#C86968','#C8687F','#688DC8'];
+
+// colorbtn.addEventListener('click', function(){
+//     //generates random index from the existing array "color"
+//     const randomIndex = Math.floor(Math.random()*color.length);
+//     //create new variable for storing index generated variable link from array
+//     const selectedcolor = color[randomIndex];
+//    // this tells the html what ojbect of the website it is affecting
+//     document.body.style.backgroundColor = selectedcolor;
+// });
+// });
